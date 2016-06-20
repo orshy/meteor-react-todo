@@ -87,6 +87,7 @@ App.propTypes = {  tasks: PropTypes.array.isRequired,
 export default createContainer(() => {
   return {
     tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
   };
 }, App);
 
