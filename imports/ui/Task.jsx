@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-
 import { Meteor } from 'meteor/meteor';
 
 // Task component - represents a single todo item
 export default class Task extends Component {
   toggleChecked() {
     // Set the checked property to the opposite of its current value
-    });
     Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
   }
 
@@ -33,7 +31,7 @@ export default class Task extends Component {
         />
 
         <span className="text">
-          {this.props.task.text} | <strong>{this.props.task.username}</strong>
+          {this.props.task.text} <strong> - {this.props.task.username}</strong>
         </span>
       </li>
     );
